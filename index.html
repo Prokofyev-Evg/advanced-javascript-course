@@ -3,14 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-    <button class="btn-cart" type="button">Корзина</button>
-</header>
-<main>
-    <div class="products"></div>
-</main>
-<script src="./js/main.js"></script>
+    <div class="container">
+        <header class="header">
+                <a href="index.html" class="logo">
+                    <img src="https://via.placeholder.com/200x42?text=LOGO" alt="Logo" class="logo">
+                </a>
+                <input type="text" class="input input-search" placeholder="Поиск">
+                <div class="buttons">
+                    <button class="button btn-cart">
+                        <img src="img/shopping-cart.svg" alt="shopping-cart" class="button-icon">
+                        <span class="button-text">Корзина</span>
+                    </button>
+                </div>
+        </header>
+    </div>
+    
+    <main>
+        <div class="container">
+            <div class="products">
+                
+            </div>
+        </div>
+    </main>
+    <script src="./js/main.js"></script>
 </body>
 </html>
