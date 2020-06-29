@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fastfood</title>
+    <script src="burger.js"></script>
+</head>
+<body>
+    <h2>Конфигуратор бургера =)</h2>
+    <h3>Размер</h3>
+    <select id="size">
+        <option value="big" data-price="100" data-ccal="40">Большой (100 рублей, 40 калорий)</option>
+        <option value="small" data-price="50" data-ccal="20">Маленький (50 рублей, 20 калорий)</option>
+    </select>
+    <h3>Наполнитель</h3>
+    <label for="radio1"><input name="filling" type="radio" value="cheese" data-price="10" data-ccal="20" id="radio1" checked>Сыр (+10 рублей, +20 калорий)</label><br>
+    <label for="radio2"><input name="filling" type="radio" value="salad" data-price="20" data-ccal="5" id="radio2">Салат (+20 рублей, +5 калорий)</label><br>
+    <label for="radio3"><input name="filling" type="radio" value="potato" data-price="15" data-ccal="10" id="radio3">Картофель (+15 рублей, +10 калорий)</label><br>
+    <h3>Добавки</h3>
+    <label for="check1"><input name="additive" type="checkbox" value="seasoning" data-price="15" data-ccal="0" id="check1">Приправа (+15 рублей, +0 калорий)</label><br>
+    <label for="check2"><input name="additive" type="checkbox" value="mayo" data-price="20" data-ccal="5" id="check2">Майонез (+20 рублей, +5 калорий)</label><br>
+    <button id="generate" type="button">Посчитать</button>
+    <h2>Итого:</h2>
+    <p id="price">0</p>
+    <p id="ccal">0</p>
+
+</body>
+</html>
