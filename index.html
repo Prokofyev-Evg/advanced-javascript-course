@@ -7,28 +7,77 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-                <a href="index.html" class="logo">
-                    <img src="https://via.placeholder.com/200x42?text=LOGO" alt="Logo" class="logo">
-                </a>
-                <input type="text" class="input input-search" placeholder="Поиск">
-                <div class="buttons">
-                    <button class="button btn-cart">
-                        <img src="img/shopping-cart.svg" alt="shopping-cart" class="button-icon">
-                        <span class="button-text">Корзина</span>
-                    </button>
-                </div>
-        </header>
-    </div>
-    
-    <main>
+    <div id="app">
         <div class="container">
-            <div class="products">
-                
+            <header class="header">
+                    <a href="index.html" class="logo">
+                        <img src="https://via.placeholder.com/200x42?text=LOGO" alt="Logo" class="logo">
+                    </a>
+                    <div class="input-search">
+                        <input type="text" v-model="searchLine" class="input search-line" placeholder="Поиск">
+                        <button v-on:click="filterGoods" class="button btn-search">Искать</button>
+                    </div>
+                    <div class="buttons">
+                        <button v-on:click="toggleCart" class="button btn-cart">
+                            <img src="img/shopping-cart.svg" alt="shopping-cart" class="button-icon">
+                            <span class="button-text">Корзина</span>
+                        </button>
+                    </div>
+            </header>
+        </div>
+        
+        <main>
+            <div class="container">
+                <div class="products">
+                    <div class="product-item" v-for="product of products" :key="product.id_product">
+                        <img :src="imgCatalog" alt="">
+                        <div class="product-text">
+                            <div class="product-heading">
+                                <h3 class="product-name">{{product.product_name}}</h3>
+                                <p class="product-price">{{product.price}} ₽</p>
+                            </div>
+                            <button @click="addProduct(product)" class="button card-button">
+                                <span class="button-text">Добавить в корзину</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <div v-bind:class="{ 'cart-is-open': isVisibleCart }" class="modal modal-cart">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h3 class="modal-title">Корзина</h3>
+                    <button v-on:click="toggleCart" class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <span v-if="goodsList.length == 0" class="modal-empty-title">Список корзины пуст</span>
+                    <div class="modal-product-item" v-for="good of goodsList" :key="good.id_product">
+                        <div class="modal-product-row">
+                            <span class="modal-product-name">{{good.product_name}}</span>
+                            <strong class="modal-product-price">{{good.price}} ₽</strong>
+                            <div class="modal-product-counter">
+                                <button class="modal-counter-button">-</button>
+                                <span class="modal-counter">1</span>
+                                <button class="modal-counter-button">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span class="modal-pricetag">{{cartPrice}} ₽</span>
+                    <div class="modal-footer-buttons">
+                        <button class="button button-primary">Оформить заказ</button>
+                        <button class="button clear-cart">Отмена</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
