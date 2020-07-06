@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регулярные выражения</title>
+    <style>
+        input {
+            width: 200px;
+            padding: 5px 10px;
+            margin: 10px 0;
+        }
+        input:focus{
+            outline: none;
+        }
+        button{
+            border: none;
+            background: rebeccapurple;
+            color: white;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .error-msg{
+            color: red;
+            margin: 10px 0;
+        }
+        .invalid{
+            border: 2px solid red;
+        }
+        .valid{
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" class="some" id="myform">
+        <div><input type="text" placeholder="Имя" name="name" id="name"></div><br>
+        <div><input type="tel" placeholder="Телефон" name="phone" id="phone"></div><br>
+        <div><input type="email" placeholder="E-mail" name="email" id="email"></div><br>
+        <div><button id="but">Отправить</button></div>
+    </form>
+    <script src="regular.js"></script>
+    <script>
+        window.onload = () => {
+            document.getElementById('myform').addEventListener('submit', e => {
+                const valid = new Validator('myform');
+
+                    e.preventDefault();
+
+            })
+        }
+    </script>
+</body>
+</html>
+
+
